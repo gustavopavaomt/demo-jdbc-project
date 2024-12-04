@@ -1,17 +1,15 @@
 package application;
 
-import domain.entites.Department;
+import domain.dao.SellerDAO;
+import domain.dao.impl.DaoFactory;
 import domain.entites.Seller;
-
-import java.util.Date;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Department department = new Department(1,"Computer Science");
-        Seller seller = new Seller(1,"Bob","bob@gmail.com",new Date(),3000.0,department);
-
+        SellerDAO sellerDAO = DaoFactory.createSellerDAO();
+        Seller seller = sellerDAO.findById(4);
 
         System.out.println(seller);
     }
